@@ -27,7 +27,12 @@ class TileData():
             self.grid_cords.x += 1
             self.grid_cords.y += 1
 
-        self.rect: pygame.Rect = self.image.get_rect(topleft=self.map_image_cords)
+        self.rect: pygame.Rect = pygame.rect.Rect(
+            int(self.map_image_cords.x - self.map_image_cords.y) + int(self.tile_info['XOff']), 
+            (int(self.map_image_cords.x + self.map_image_cords.y) // 2) + int(self.tile_info['YOff']), 
+            TILE_SIZE - int(self.tile_info['WOff']), 
+            (TILE_SIZE // 2) - int(self.tile_info['HOff'])
+        )
         
     def __repr__(self) -> str:
         return f'{self.tile_info}, {self.layer}, {self.map_image_cords}'

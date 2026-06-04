@@ -103,7 +103,7 @@ class MapData():
                         if _col != '-1':
                             self.tiles.append(TileData(
                                 grid_cords=[_x // 16, _y // 16], 
-                                map_image_cords=[_x +  160, _y - 160], 
+                                map_image_cords=[_x + 160, _y - 160], 
                                 layer=self.layers.index(_layer) + _layer.index(_section),
                                 image=self.tileset[int(_col)],
                                 image_path=_col, 
