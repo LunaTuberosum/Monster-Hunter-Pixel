@@ -19,7 +19,7 @@ class World(GameProcess):
         self.draw()
         
     def draw(self) -> None:
-        screen: pygame.Surface = self.main.get_screen()
+        screen: pygame.Surface = self.temp_screen
         
         screen.fill('#313031')
         

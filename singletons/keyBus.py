@@ -16,6 +16,15 @@ class KeyBus(Bus):
                 
                 'mouse_scroll_down': [],
                 'mouse_scroll_up': [],
+                
+                'confirm_down': [], 
+                'confirm_up': [], 
+                
+                'cancel_down': [], 
+                'cancel_up': [], 
+                
+                'menu_down': [], 
+                'menu_up': [], 
             }
         )
         

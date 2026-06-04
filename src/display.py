@@ -4,6 +4,7 @@ import pyautogui
 
 import pygame
 
+from singletons.dataBus import data_bus
 
 class ScreenOptions(Enum):
     FULLSCREEN: int = 0
@@ -25,6 +26,8 @@ class Display():
         self.__volume: float = 1
         
         self.screen: pygame.Surface = None
+        
+        data_bus.register('get_resolution', self.get_resolution)
         
     def get_resolution(self) -> tuple[int, int]:
         return (self.__width, self.__height)
@@ -95,6 +98,12 @@ class Display():
         
         pyautogui.moveTo(prev_pos[0], prev_pos[1])
         
-    def draw(self) -> None:
+    def draw(self, temp_screen: pygame.Surface) -> None:
+        temp: pygame.Surface = pygame.transform.scale(
+            temp_screen,
+            self.get_resolution()
+        )
+        self.screen.blit(temp)
+        
         pygame.display.flip()
         

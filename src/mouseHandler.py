@@ -1,5 +1,6 @@
 import pygame
 
+from singletons.dataBus import data_bus
 from singletons.keyBus import key_bus
 
 
@@ -9,11 +10,24 @@ RIGHT: int = 3
 SCROLL_UP: int = 4
 SCROLL_DOWN: int = 5
 
+DEFUALT_SCREEN_SIZE: tuple[int, int] = (1280, 720)
+
 class MouseHandler():
     def __init__(self) -> None:
         self.mouse_pos: tuple[int, int] = ()
         self.mouse_rel: tuple[int, int] = ()
         self.scroll_wheel: tuple[int, int] = ()
+        
+        data_bus.register('get_mouse_pos', self.get_pos)
+        
+    def get_pos(self) -> tuple[int, int]:
+        res: tuple[int, int] = data_bus.sign('get_resolution')
+        scale: tuple[int, int] = (
+            res[0] / DEFUALT_SCREEN_SIZE[0], 
+            res[1] / DEFUALT_SCREEN_SIZE[1]
+        )
+        
+        return (self.mouse_pos[0] / scale[0], self.mouse_pos[1] / scale[1])
         
     def handle_mouse(self, events: list[pygame.Event]) -> None:
         self.mouse_pos = pygame.mouse.get_pos()

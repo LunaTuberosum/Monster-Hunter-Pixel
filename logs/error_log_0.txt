@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "C:\Users\Luna\Desktop\VsCode\Monster Huner Pixel\src\gameLoop.py", line 22, in inner
+    return func(*args)
+  File "C:\Users\Luna\Desktop\VsCode\Monster Huner Pixel\src\gameLoop.py", line 105, in update
+    self.current_process.update()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Luna\Desktop\VsCode\Monster Huner Pixel\world\world.py", line 17, in update
+    super().update()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\Luna\Desktop\VsCode\Monster Huner Pixel\src\gameProcess.py", line 38, in update
+    self.key_handler.handle_keys()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Luna\Desktop\VsCode\Monster Huner Pixel\src\keyHandler.py", line 16, in handle_keys
+    self.__key_down()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Luna\Desktop\VsCode\Monster Huner Pixel\src\keyHandler.py", line 22, in __key_down
+    for term, key in self.keyboard_config.items():
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'KeyHandler' object has no attribute 'keyboard_config'
