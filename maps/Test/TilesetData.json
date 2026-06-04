@@ -1,0 +1,146 @@
+{
+    "0": {
+        "Name": "GRD_0",
+        "Elv": "0",
+        "NAS": false,
+        "XOff": "4", 
+        "YOff": "2", 
+        "WOff": "8", 
+        "HOff": "4" 
+    },
+    "1": {
+        "Name": "ELV_1",
+        "Elv": "2",
+        "NAS": false,
+        "XOff": "4", 
+        "YOff": "10", 
+        "WOff": "8", 
+        "HOff": "4" 
+    },
+    "2": {
+        "Name": "ELV_0",
+        "Elv": "1",
+        "NAS": false,
+        "XOff": "4", 
+        "YOff": "14", 
+        "WOff": "8", 
+        "HOff": "4" 
+    },
+    "3": {
+        "Name": "GRD_1",
+        "Elv": "0",
+        "NAS": false,
+        "XOff": "4", 
+        "YOff": "2", 
+        "WOff": "8", 
+        "HOff": "4" 
+    },
+    "4": {
+        "Name": "GRD_2",
+        "Elv": "0",
+        "NAS": false,
+        "XOff": "4", 
+        "YOff": "2", 
+        "WOff": "8", 
+        "HOff": "4" 
+    },
+    "5": {
+        "Name": "GRD_3",
+        "Elv": "0",
+        "NAS": false,
+        "XOff": "4", 
+        "YOff": "2", 
+        "WOff": "8", 
+        "HOff": "4" 
+    },
+    "6": {
+        "Name": "OBS_0",
+        "Elv": "0",
+        "NAS": true,
+        "XOff": "4", 
+        "YOff": "18", 
+        "WOff": "8", 
+        "HOff": "4" 
+    },
+    "7": {
+        "Name": "WLL_0",
+        "Elv": "0",
+        "NAS": true,
+        "XOff": "4", 
+        "YOff": "18", 
+        "WOff": "8", 
+        "HOff": "4" 
+    },
+    "8": {
+        "Name": "DEC_0",
+        "Elv": "0",
+        "NAS": false,
+        "XOff": "4", 
+        "YOff": "2", 
+        "WOff": "8", 
+        "HOff": "4" 
+    },
+    "9": {
+        "Name": "OBS_1",
+        "Elv": "1",
+        "NAS": true,
+        "XOff": "4", 
+        "YOff": "14", 
+        "WOff": "8", 
+        "HOff": "4" 
+    },
+    "10": {
+        "Name": "DEC_1",
+        "Elv": "0",
+        "NAS": false,
+        "XOff": "4", 
+        "YOff": "2", 
+        "WOff": "8", 
+        "HOff": "4" 
+    },
+    "11": {
+        "Name": "BLK_1",
+        "Elv": "0",
+        "NAS": false,
+        "XOff": "0", 
+        "YOff": "0", 
+        "WOff": "-32", 
+        "HOff": "-16" 
+    },
+    "12": {
+        "Name": "WLL_1",
+        "Elv": "0",
+        "NAS": true,
+        "XOff": "4", 
+        "YOff": "18", 
+        "WOff": "8", 
+        "HOff": "4" 
+    },
+    "13": {
+        "Name": "SPC_0",
+        "Elv": "0",
+        "NAS": false,
+        "XOff": "4", 
+        "YOff": "2", 
+        "WOff": "8", 
+        "HOff": "4" 
+    },
+    "14": {
+        "Name": "SPC_1",
+        "Elv": "0",
+        "NAS": false,
+        "XOff": "4", 
+        "YOff": "2", 
+        "WOff": "8", 
+        "HOff": "4" 
+    },
+    "15": {
+        "Name": "BLK_2",
+        "Elv": "0",
+        "NAS": false,
+        "XOff": "0", 
+        "YOff": "0", 
+        "WOff": "-32", 
+        "HOff": "-16" 
+    }
+}

@@ -1,9 +1,16 @@
+import csv
 import json
+import os
 import pickle
 import pygame
-import os
 import shutil
 
+
+def load_csv(csv_path: str) -> list[str]:
+    try:
+        return csv.reader(csv_path, delimiter=',')
+    except:
+        raise FileNotFoundError(f'Path "{csv_path}" dosen\'t exist or dosen\'t lead to a csv.')
 
 def load_dir(dir_path: str) -> list[str]:
     try:

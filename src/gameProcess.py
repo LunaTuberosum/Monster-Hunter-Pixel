@@ -10,10 +10,10 @@ from src.mouseHandler import MouseHandler
 
 class GameProcess():
     def __init__(self, main: object) -> None:
-        from src.gameLoop import GameLoop, DEFUALT_SCREEN_SIZE
+        from src.gameLoop import GameLoop, GAME_SCREEN_SIZE
         self.main: GameLoop = main
         
-        self.temp_screen: pygame.Surface = pygame.Surface(DEFUALT_SCREEN_SIZE)
+        self.temp_screen: pygame.Surface = pygame.Surface(GAME_SCREEN_SIZE)
         
         self.key_handler: KeyHandler = KeyHandler()
         self.mouse_handler: MouseHandler = MouseHandler()
