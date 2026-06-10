@@ -2,5 +2,6 @@
     "confirm": "space",
     "cancel": "left shift",
 
-    "menu": "escape"
+    "menu": "escape",
+    "debug": "f1"
 }

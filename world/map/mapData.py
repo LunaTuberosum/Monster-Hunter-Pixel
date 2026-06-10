@@ -4,6 +4,7 @@ import pygame
 
 from singletons import resourceHandler
 
+from world.character.player import Player
 from world.map.tileData import TileData
 
 
@@ -26,6 +27,17 @@ class MapData():
         self.tiles: list[TileData] = []
         self.__make_map()
         
+        self.players: list[Player] = [
+            Player(
+                (7, 8),
+                'P1'
+            ),
+            Player(
+                (8, 7),
+                'P1'
+            )
+        ]
+        
     def get_tile(self, grid_cords: tuple[int, int]) -> TileData:
         tiles: list[TileData] = []
         for _tile in self.tiles:
@@ -46,13 +58,27 @@ class MapData():
 
     def draw_map(self) -> None:
         self.map_image.fill('#000000')
-        for _tile in self.tiles:
-            _tile.draw(self.map_image)
+        
+        y_sort: list[TileData | Player] = self.tiles + self.players
+        
+        def ysort(e: TileData | Player) -> int:
+            if isinstance(e, TileData):
+                return e.grid_cords[1] + e.layer
             
-        # for _player in self.players:
-        #     yOff = 19 - int(self.get_tile(_player.gridCords).tileInfo['YOff'])
+            return e.grid_cords[1] + int(self.get_tile(e.grid_cords).layer)
+        
+        y_sort.sort(key=ysort)
+        
+        for _item in y_sort:
+            if isinstance(_item, TileData):
+                _item.draw(self.map_image)
+                
+            elif isinstance(_item, Player):
+                _y_offset: int = 19 - int(self.get_tile(_item.grid_cords).tile_info['YOff'])
+                if _y_offset == 17:
+                    _y_offset = 1
             
-        #     _player.draw(self.map_image, yOff)
+                _item.draw(self.map_image, _y_offset)
         
     def __make_tileset(self) -> None:
         _image: pygame.Surface = resourceHandler.load_image(f'.\\maps\\{self.map_name}\\Tileset.png')

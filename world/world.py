@@ -3,6 +3,7 @@ import pygame
 from singletons.dataBus import data_bus
 from singletons.keyBus import key_bus
 
+from src.debug import Debug
 from src.gameProcess import GameProcess
 
 from world.map.mapHandler import MapHandler
@@ -18,23 +19,43 @@ class World(GameProcess):
         self.pan: bool = False
         self.offset: pygame.Vector2 = pygame.Vector2()
         
+        self.current_tile: TileData = None
+        
+        self.debug: Debug = Debug(self)
+        
     def setup_bus_calls(self) -> None:
         super().setup_bus_calls()
+        
+        key_bus.register('mouse_left_down', self.on_click)
         
         key_bus.register('mouse_right_down', self.on_alt_click)
         key_bus.register('mouse_right_up', self.on_alt_release)
         
+        key_bus.register('debug_down', self.on_debug)
+        
     def deregister(self) -> None:
         super().deregister()
         
+        key_bus.deregister('mouse_left_down', self.on_click)
+        
         key_bus.deregister('mouse_right_down', self.on_alt_click)
         key_bus.deregister('mouse_right_up', self.on_alt_release)
+        
+        key_bus.deregister('debug_down', self.on_debug)
+    
+    def on_click(self) -> None:
+        for _player in self.map_handler.current_map.players:
+            if (_tile := self.map_handler.current_map.get_tile(_player.grid_cords)).hover:
+                _player.selected = not _player.selected
     
     def on_alt_click(self) -> None:
         self.pan = True
         
     def on_alt_release(self) -> None:
         self.pan = False
+        
+    def on_debug(self) -> None:
+        self.debug.toggle_active()
         
     def update(self) -> None:
         super().update()
@@ -56,6 +77,8 @@ class World(GameProcess):
         screen.fill('#313031')
         
         self.map_handler.draw(screen, self.offset.x, self.offset.y)
+        
+        self.debug.draw()
         
         super().draw()
         
@@ -110,3 +133,4 @@ class World(GameProcess):
                     break
                 
             _collided_tiles[0].hover = True
+            self.current_tile = _collided_tiles[0]

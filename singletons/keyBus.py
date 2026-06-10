@@ -25,6 +25,9 @@ class KeyBus(Bus):
                 
                 'menu_down': [], 
                 'menu_up': [], 
+                
+                'debug_down': [], 
+                'debug_up': [], 
             }
         )
         

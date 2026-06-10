@@ -8,12 +8,14 @@ class KeyButton(Enum):
     CANCEL: int = 1
     
     MENU: int = 2
+    DEBUG: int = 3
     
 term_key_lookup: dict[KeyButton, str] = {
     KeyButton.CONFIRM: 'confirm',
     KeyButton.CANCEL: 'cancel',
     
     KeyButton.MENU: 'menu',
+    KeyButton.DEBUG: 'debug',
 }
     
 pygame_key_lookup: dict[str, int] = {
@@ -49,4 +51,17 @@ pygame_key_lookup: dict[str, int] = {
     'left shift': pygame.K_LSHIFT,
     'right shift': pygame.K_RSHIFT,
     'space': pygame.K_SPACE,
+    
+    'f1': pygame.K_F1,
+    'f2': pygame.K_F2,
+    'f3': pygame.K_F3,
+    'f4': pygame.K_F4,
+    'f5': pygame.K_F5,
+    'f6': pygame.K_F6,
+    'f7': pygame.K_F7,
+    'f8': pygame.K_F8,
+    'f9': pygame.K_F9,
+    'f10': pygame.K_F10,
+    'f11': pygame.K_F11,
+    'f12': pygame.K_F12,
 }
